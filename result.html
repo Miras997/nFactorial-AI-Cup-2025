@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Podcast Ready!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Study Podcast is Ready!</h1>
+        <p><strong>Original File:</strong> {{ filename }}</p>
+        
+        <h2>Generated Podcast Script:</h2>
+        <pre class="script-display">{{ script }}</pre>
+        
+        <h2>Listen to your Podcast:</h2>
+        {% if audio_url %}
+            <audio controls>
+                <source src="{{ url_for('serve_podcast', filename=audio_url.split('/')[-1]) }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p><a href="{{ url_for('serve_podcast', filename=audio_url.split('/')[-1]) }}" download>Download Podcast</a></p>
+        {% else %}
+            <p>Sorry, there was an error generating the audio.</p>
+        {% endif %}
+
+        <br>
+        <a href="{{ url_for('upload_file') }}" class="button-link">Generate Another Podcast</a>
+    </div>
+</body>
+</html> 

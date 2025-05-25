@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personalized Study Podcast Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Study Material</h1>
+        <p>Upload a PDF or TXT file to generate a personalized study podcast.</p>
+        <form method=post enctype=multipart/form-data>
+            <input type=file name=file class="file-input">
+            <input type=submit value=Upload class="submit-button">
+        </form>
+    </div>
+</body>
+</html> 
